@@ -1,0 +1,84 @@
+- action:
+  - data:
+      brightness: '80'
+      entity_id: light.front_porch_light_level
+    service: homeassistant.turn_on
+  alias: Turn Front Porch Light On at Dusk
+  condition: []
+  id: '1516153013206'
+  trigger:
+  - event: sunset
+    platform: sun
+- action:
+  - data:
+      entity_id: light.front_porch_light_level
+    service: homeassistant.turn_off
+  alias: Turn Front Porch Light Off at Sunrise
+  condition: []
+  id: '1516155111562'
+  trigger:
+  - event: sunrise
+    platform: sun
+- action:
+  - alias: ''
+    data:
+      entity_id: switch.wemo_switch_plug
+    service: homeassistant.turn_on
+  alias: Notify on Double Tap On of Front Porch Light
+  condition: []
+  id: '1516491097012'
+  trigger:
+  - event_data:
+      basic_level: 255
+      entity_id: zwave.front_porch_light
+    event_type: zwave.node_event
+    platform: event
+- action:
+  - data:
+      entity_id: switch.wemo_switch_plug
+    service: homeassistant.turn_off
+  alias: Notify on Double Tap Off of Front Porch Light
+  condition: []
+  id: '1516491874257'
+  trigger:
+  - event_data:
+      basic_level: 0
+      entity_id: zwave.front_porch_light
+    event_type: zwave.node_event
+    platform: event
+- action:
+  - data:
+      entity_id: switch.den_lamps_outlet
+    service: homeassistant.turn_on
+  alias: Vestibule Light Double Tap On Turn Den Lights On
+  condition: []
+  id: '1519496575051'
+  trigger:
+  - event_data:
+      basic_level: 255
+      entity_id: zwave.vestibule
+    event_type: zwave.node_event
+    platform: event
+- action:
+  - data:
+      entity_id: switch.den_lamps_outlet
+    service: homeassistant.turn_off
+  alias: Vestibule Light Double Tap Off Turn Den Lights Off
+  condition: []
+  id: '1519498111775'
+  trigger:
+  - event_data:
+      basic_level: 0
+      entity_id: zwave.vestibule
+    event_type: zwave.node_event
+    platform: event
+- action:
+  - data:
+      entity_id: switch.wemo_switch_plug
+    service: homeassistant.turn_off
+  alias: Turn Off Coffee Pot in the Morning
+  condition: []
+  id: '1520100579322'
+  trigger:
+  - at: '10:00:00'
+    platform: time

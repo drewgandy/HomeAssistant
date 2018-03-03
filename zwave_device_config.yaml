@@ -1,0 +1,9 @@
+light.level:
+  ignored: false
+  polling_intensity: 0
+switch.switch:
+  ignored: false
+  polling_intensity: 0
+light.ge_14294_inwall_smart_dimmer_vestibule:
+  ignored: false
+  polling_intensity: 0

@@ -1,0 +1,7 @@
+zwave.front_porch_light: {}
+configurator.plex_media_server:
+  hidden: true
+light.level:
+  friendly_name: Vestibule
+switch.wemo_switch_plug:
+  friendly_name: Coffee Pot
